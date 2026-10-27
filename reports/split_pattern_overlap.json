@@ -1,0 +1,44 @@
+{
+  "features_compared": [
+    "LeadTime",
+    "ArrivalDateDayOfMonth",
+    "StaysInWeekendNights",
+    "StaysInWeekNights",
+    "Adults",
+    "Children",
+    "Babies",
+    "IsRepeatedGuest",
+    "hotel_type",
+    "ArrivalDateMonth",
+    "Meal",
+    "MarketSegment",
+    "DistributionChannel",
+    "ReservedRoomType",
+    "CustomerType"
+  ],
+  "training_records": 78310,
+  "training_unique_predictor_patterns": 48772,
+  "results": [
+    {
+      "split": "validation",
+      "records": 18089,
+      "records_matching_training_predictors": 136,
+      "fraction_matching_training_predictors": 0.007518381336723976,
+      "records_matching_training_predictors_and_arrival": 0
+    },
+    {
+      "split": "test",
+      "records": 22198,
+      "records_matching_training_predictors": 82,
+      "fraction_matching_training_predictors": 0.0036940264888728714,
+      "records_matching_training_predictors_and_arrival": 0
+    }
+  ],
+  "limitations": [
+    "Matching predictor patterns do not prove duplicate bookings.",
+    "Different patterns do not prove different customers.",
+    "Anonymous data cannot establish customer-level independence.",
+    "Hashes are comparison fingerprints, not customer identifiers.",
+    "No records removed; models and frozen selection unchanged."
+  ]
+}

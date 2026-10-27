@@ -1,0 +1,31 @@
+﻿# Python environment and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Rebuildable data and model outputs
+data/raw/*
+data/processed/*
+models/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!models/.gitkeep
+
+# Editor and operating system files
+.vscode/
+Thumbs.db
+.DS_Store
+
+# Tableau recovery and temporary files
+*.twbr
+dashboards/~*
+
+# Local repair archive
+StaySignal_repair_data.zip

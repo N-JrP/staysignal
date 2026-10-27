@@ -1,0 +1,3 @@
+hotel_type,bookings,cancellations,no_shows,cancellations_or_no_shows,median_lead_time,median_total_nights,cancellation_rate,no_show_rate,combined_outcome_rate
+City Hotel,79330,32186,916,33102,74.0,3.0,0.4057229295348544,0.011546703643010211,0.41726963317786464
+Resort Hotel,40060,10831,291,11122,57.0,3.0,0.2703694458312531,0.007264103844233649,0.27763354967548676

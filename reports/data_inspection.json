@@ -1,0 +1,298 @@
+[
+  {
+    "filename": "H1.csv",
+    "rows": 40060,
+    "columns": 31,
+    "dtypes": {
+      "IsCanceled": "int64",
+      "LeadTime": "int64",
+      "ArrivalDateYear": "int64",
+      "ArrivalDateMonth": "str",
+      "ArrivalDateWeekNumber": "int64",
+      "ArrivalDateDayOfMonth": "int64",
+      "StaysInWeekendNights": "int64",
+      "StaysInWeekNights": "int64",
+      "Adults": "int64",
+      "Children": "int64",
+      "Babies": "int64",
+      "Meal": "str",
+      "Country": "str",
+      "MarketSegment": "str",
+      "DistributionChannel": "str",
+      "IsRepeatedGuest": "int64",
+      "PreviousCancellations": "int64",
+      "PreviousBookingsNotCanceled": "int64",
+      "ReservedRoomType": "str",
+      "AssignedRoomType": "str",
+      "BookingChanges": "int64",
+      "DepositType": "str",
+      "Agent": "str",
+      "Company": "str",
+      "DaysInWaitingList": "int64",
+      "CustomerType": "str",
+      "ADR": "float64",
+      "RequiredCarParkingSpaces": "int64",
+      "TotalOfSpecialRequests": "int64",
+      "ReservationStatus": "str",
+      "ReservationStatusDate": "str"
+    },
+    "pandas_missing_values": {
+      "IsCanceled": 0,
+      "LeadTime": 0,
+      "ArrivalDateYear": 0,
+      "ArrivalDateMonth": 0,
+      "ArrivalDateWeekNumber": 0,
+      "ArrivalDateDayOfMonth": 0,
+      "StaysInWeekendNights": 0,
+      "StaysInWeekNights": 0,
+      "Adults": 0,
+      "Children": 0,
+      "Babies": 0,
+      "Meal": 0,
+      "Country": 464,
+      "MarketSegment": 0,
+      "DistributionChannel": 0,
+      "IsRepeatedGuest": 0,
+      "PreviousCancellations": 0,
+      "PreviousBookingsNotCanceled": 0,
+      "ReservedRoomType": 0,
+      "AssignedRoomType": 0,
+      "BookingChanges": 0,
+      "DepositType": 0,
+      "Agent": 0,
+      "Company": 0,
+      "DaysInWaitingList": 0,
+      "CustomerType": 0,
+      "ADR": 0,
+      "RequiredCarParkingSpaces": 0,
+      "TotalOfSpecialRequests": 0,
+      "ReservationStatus": 0,
+      "ReservationStatusDate": 0
+    },
+    "text_checks": {
+      "ArrivalDateMonth": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "Meal": {
+        "padded_values": 38891,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "Country": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "MarketSegment": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "DistributionChannel": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "ReservedRoomType": {
+        "padded_values": 40060,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "AssignedRoomType": {
+        "padded_values": 40060,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "DepositType": {
+        "padded_values": 40060,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "Agent": {
+        "padded_values": 40060,
+        "literal_null_values": 8209,
+        "blank_values": 0
+      },
+      "Company": {
+        "padded_values": 40060,
+        "literal_null_values": 36952,
+        "blank_values": 0
+      },
+      "CustomerType": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "ReservationStatus": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "ReservationStatusDate": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      }
+    },
+    "duplicate_looking_rows_after_first": 6092,
+    "cancellation_label_counts": {
+      "0": 28938,
+      "1": 11122
+    },
+    "notes": [
+      "No records modified or removed.",
+      "Literal NULL and blank counts are separate from pandas missing values.",
+      "Duplicate-looking rows are not proven duplicate bookings."
+    ]
+  },
+  {
+    "filename": "H2.csv",
+    "rows": 79330,
+    "columns": 31,
+    "dtypes": {
+      "IsCanceled": "int64",
+      "LeadTime": "int64",
+      "ArrivalDateYear": "int64",
+      "ArrivalDateMonth": "str",
+      "ArrivalDateWeekNumber": "int64",
+      "ArrivalDateDayOfMonth": "int64",
+      "StaysInWeekendNights": "int64",
+      "StaysInWeekNights": "int64",
+      "Adults": "int64",
+      "Children": "float64",
+      "Babies": "int64",
+      "Meal": "str",
+      "Country": "str",
+      "MarketSegment": "str",
+      "DistributionChannel": "str",
+      "IsRepeatedGuest": "int64",
+      "PreviousCancellations": "int64",
+      "PreviousBookingsNotCanceled": "int64",
+      "ReservedRoomType": "str",
+      "AssignedRoomType": "str",
+      "BookingChanges": "int64",
+      "DepositType": "str",
+      "Agent": "str",
+      "Company": "str",
+      "DaysInWaitingList": "int64",
+      "CustomerType": "str",
+      "ADR": "float64",
+      "RequiredCarParkingSpaces": "int64",
+      "TotalOfSpecialRequests": "int64",
+      "ReservationStatus": "str",
+      "ReservationStatusDate": "str"
+    },
+    "pandas_missing_values": {
+      "IsCanceled": 0,
+      "LeadTime": 0,
+      "ArrivalDateYear": 0,
+      "ArrivalDateMonth": 0,
+      "ArrivalDateWeekNumber": 0,
+      "ArrivalDateDayOfMonth": 0,
+      "StaysInWeekendNights": 0,
+      "StaysInWeekNights": 0,
+      "Adults": 0,
+      "Children": 4,
+      "Babies": 0,
+      "Meal": 0,
+      "Country": 24,
+      "MarketSegment": 0,
+      "DistributionChannel": 0,
+      "IsRepeatedGuest": 0,
+      "PreviousCancellations": 0,
+      "PreviousBookingsNotCanceled": 0,
+      "ReservedRoomType": 0,
+      "AssignedRoomType": 0,
+      "BookingChanges": 0,
+      "DepositType": 0,
+      "Agent": 0,
+      "Company": 0,
+      "DaysInWaitingList": 0,
+      "CustomerType": 0,
+      "ADR": 0,
+      "RequiredCarParkingSpaces": 0,
+      "TotalOfSpecialRequests": 0,
+      "ReservationStatus": 0,
+      "ReservationStatusDate": 0
+    },
+    "text_checks": {
+      "ArrivalDateMonth": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "Meal": {
+        "padded_values": 79330,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "Country": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "MarketSegment": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "DistributionChannel": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "ReservedRoomType": {
+        "padded_values": 79330,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "AssignedRoomType": {
+        "padded_values": 79330,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "DepositType": {
+        "padded_values": 79330,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "Agent": {
+        "padded_values": 79330,
+        "literal_null_values": 8131,
+        "blank_values": 0
+      },
+      "Company": {
+        "padded_values": 79330,
+        "literal_null_values": 75641,
+        "blank_values": 0
+      },
+      "CustomerType": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "ReservationStatus": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      },
+      "ReservationStatusDate": {
+        "padded_values": 0,
+        "literal_null_values": 0,
+        "blank_values": 0
+      }
+    },
+    "duplicate_looking_rows_after_first": 25902,
+    "cancellation_label_counts": {
+      "0": 46228,
+      "1": 33102
+    },
+    "notes": [
+      "No records modified or removed.",
+      "Literal NULL and blank counts are separate from pandas missing values.",
+      "Duplicate-looking rows are not proven duplicate bookings."
+    ]
+  }
+]

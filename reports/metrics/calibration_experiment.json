@@ -1,0 +1,38 @@
+{
+  "calibration_period": "January-February 2017",
+  "assessment_period": "March-April 2017",
+  "calibration_records": 7556,
+  "early_records_held_aside_for_late_labels": 302,
+  "assessment_records": 10231,
+  "calibrator_slope": 1.4228742405099677,
+  "calibrator_intercept": 0.5606006522924506,
+  "input_transform": "logit of probability clipped to [1e-6, 1-1e-6]",
+  "results": [
+    {
+      "model": "random_forest_unadjusted",
+      "records": 10231,
+      "positive_rate": 0.40416381585377775,
+      "average_precision": 0.7634161116226998,
+      "roc_auc": 0.800264728471819,
+      "brier_score": 0.17914703566743434,
+      "log_loss": 0.5311326821578259
+    },
+    {
+      "model": "random_forest_sigmoid",
+      "records": 10231,
+      "positive_rate": 0.40416381585377775,
+      "average_precision": 0.7634161116226998,
+      "roc_auc": 0.800264728471819,
+      "brier_score": 0.17561636239549563,
+      "log_loss": 0.5200239331154737
+    }
+  ],
+  "notes": [
+    "Base forest unchanged and trained on original training split.",
+    "Calibration fit only on early-validation available labels.",
+    "Both variants assessed on identical later-validation records.",
+    "Validation already informed development; this is not an independent final test.",
+    "Final test remains unscored.",
+    "Calibration is not automatically selected based on this experiment."
+  ]
+}

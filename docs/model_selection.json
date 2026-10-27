@@ -1,0 +1,87 @@
+{
+  "recorded_at_utc": "2026-10-25T07:23:06.279179+00:00",
+  "selected_model": "random_forest_with_sigmoid_calibration",
+  "target": "Cancellation or no-show: IsCanceled",
+  "numeric_features": [
+    "LeadTime",
+    "ArrivalDateDayOfMonth",
+    "StaysInWeekendNights",
+    "StaysInWeekNights",
+    "Adults",
+    "Children",
+    "Babies",
+    "IsRepeatedGuest"
+  ],
+  "categorical_features": [
+    "hotel_type",
+    "ArrivalDateMonth",
+    "Meal",
+    "MarketSegment",
+    "DistributionChannel",
+    "ReservedRoomType",
+    "CustomerType"
+  ],
+  "base_model_training": "Original train split only; no refitting",
+  "calibration_training": "January-February validation records with final status before March",
+  "selection_evidence": [
+    {
+      "model": "random_forest_unadjusted",
+      "records": 10231,
+      "positive_rate": 0.40416381585377775,
+      "average_precision": 0.7634161116226998,
+      "roc_auc": 0.800264728471819,
+      "brier_score": 0.17914703566743434,
+      "log_loss": 0.5311326821578259
+    },
+    {
+      "model": "random_forest_sigmoid",
+      "records": 10231,
+      "positive_rate": 0.40416381585377775,
+      "average_precision": 0.7634161116226998,
+      "roc_auc": 0.800264728471819,
+      "brier_score": 0.17561636239549563,
+      "log_loss": 0.5200239331154737
+    }
+  ],
+  "final_test_period": "2017-05-01 to 2017-08-31",
+  "final_test_expected_records": 22198,
+  "evaluation_plan": {
+    "comparators": [
+      "training_prevalence_baseline",
+      "logistic_regression",
+      "random_forest_unadjusted",
+      "random_forest_sigmoid"
+    ],
+    "metrics": [
+      "average_precision",
+      "roc_auc",
+      "brier_score",
+      "log_loss"
+    ],
+    "reference_probability_threshold": 0.5,
+    "review_capacity_fractions": [
+      0.05,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "illustrative_review_capacity": 0.1,
+    "capacity_scope": "Entire test cohort, not daily workload"
+  },
+  "artifact_sha256": {
+    "models/random_forest.joblib": "e087b7518e84732499e54527deca7741eed1607622f27c381eb7755b3feb37bf",
+    "models/random_forest_sigmoid_calibrator.joblib": "87754988c12060b03d1a7ed2d34694f9d382e30d6f4336f7c62344ce3e01dde2",
+    "models/logistic_regression.joblib": "a6b446ef85ae8f049c7b0dbe53f946f0d5269ee61f40e2b038a9773f47efb96f",
+    "data/processed/split_assignments.csv": "5a8d3228ff4c926acaff8256417bfded3241f6d17383efbf802b97147c48c63e",
+    "docs/split_config.json": "5b44895985a0d0ce13fd679c8e5a55a869d5cfcdf4cf30a21d39b664f87aaf87",
+    "requirements.txt": "7d559070bdc5923814e6cb584068b3488fd9dd070530a59e2202b54b7a13aed5"
+  },
+  "rules": [
+    "Do not tune models or calibration using final-test results.",
+    "Report final-test results even if performance deteriorates.",
+    "The 0.5 threshold is a reference, not an optimised policy.",
+    "Review capacity is illustrative, not a measured hotel requirement.",
+    "Historical benchmark; not proof of booking-time deployment.",
+    "Cross-hotel robustness work remains a separate experiment."
+  ]
+}

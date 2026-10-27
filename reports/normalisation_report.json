@@ -1,0 +1,81 @@
+{
+  "rows": 119390,
+  "columns": 35,
+  "files": [
+    {
+      "source_file": "H1.csv",
+      "rows_retained": 40060,
+      "text_changes": {
+        "Meal": {
+          "trimmed_values": 38891,
+          "missing_markers_normalised": 0
+        },
+        "ReservedRoomType": {
+          "trimmed_values": 40060,
+          "missing_markers_normalised": 0
+        },
+        "AssignedRoomType": {
+          "trimmed_values": 40060,
+          "missing_markers_normalised": 0
+        },
+        "DepositType": {
+          "trimmed_values": 40060,
+          "missing_markers_normalised": 0
+        },
+        "Agent": {
+          "trimmed_values": 40060,
+          "missing_markers_normalised": 8209
+        },
+        "Company": {
+          "trimmed_values": 40060,
+          "missing_markers_normalised": 36952
+        }
+      }
+    },
+    {
+      "source_file": "H2.csv",
+      "rows_retained": 79330,
+      "text_changes": {
+        "Meal": {
+          "trimmed_values": 79330,
+          "missing_markers_normalised": 0
+        },
+        "ReservedRoomType": {
+          "trimmed_values": 79330,
+          "missing_markers_normalised": 0
+        },
+        "AssignedRoomType": {
+          "trimmed_values": 79330,
+          "missing_markers_normalised": 0
+        },
+        "DepositType": {
+          "trimmed_values": 79330,
+          "missing_markers_normalised": 0
+        },
+        "Agent": {
+          "trimmed_values": 79330,
+          "missing_markers_normalised": 8131
+        },
+        "Company": {
+          "trimmed_values": 79330,
+          "missing_markers_normalised": 75641
+        }
+      }
+    }
+  ],
+  "missing_values": {
+    "Children": 4,
+    "Country": 488,
+    "Agent": 16340,
+    "Company": 112593
+  },
+  "decisions": [
+    "All source records retained, including duplicate-looking rows.",
+    "Whitespace trimmed and blank/NULL markers normalised.",
+    "Agent and Company identifiers preserved as text.",
+    "Missing values not imputed.",
+    "Dates and numerical anomalies not yet validated.",
+    "Generated booking IDs identify source rows, not real-world bookings.",
+    "Outcome fields retained for analysis; not approved as model features."
+  ]
+}

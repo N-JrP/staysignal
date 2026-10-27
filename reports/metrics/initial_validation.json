@@ -1,0 +1,76 @@
+{
+  "target": "Cancellation or no-show",
+  "training_records": 78310,
+  "numeric_features": [
+    "LeadTime",
+    "ArrivalDateDayOfMonth",
+    "StaysInWeekendNights",
+    "StaysInWeekNights",
+    "Adults",
+    "Children",
+    "Babies",
+    "IsRepeatedGuest"
+  ],
+  "categorical_features": [
+    "hotel_type",
+    "ArrivalDateMonth",
+    "Meal",
+    "MarketSegment",
+    "DistributionChannel",
+    "ReservedRoomType",
+    "CustomerType"
+  ],
+  "results": [
+    {
+      "model": "training_prevalence_baseline",
+      "evaluation_split": "validation",
+      "records": 18089,
+      "positive_rate": 0.3728232627563713,
+      "average_precision": 0.3728232627563713,
+      "roc_auc": 0.5,
+      "brier_score": 0.23390985918548213,
+      "threshold": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "confusion_matrix": [
+        [
+          11345,
+          0
+        ],
+        [
+          6744,
+          0
+        ]
+      ]
+    },
+    {
+      "model": "logistic_regression",
+      "evaluation_split": "validation",
+      "records": 18089,
+      "positive_rate": 0.3728232627563713,
+      "average_precision": 0.69196323542521,
+      "roc_auc": 0.7539336469104706,
+      "brier_score": 0.18487566302534075,
+      "threshold": 0.5,
+      "precision": 0.7072149716818518,
+      "recall": 0.4258600237247924,
+      "confusion_matrix": [
+        [
+          10156,
+          1189
+        ],
+        [
+          3872,
+          2872
+        ]
+      ]
+    }
+  ],
+  "notes": [
+    "Preprocessing fitted on training data only.",
+    "Validation used for development evaluation.",
+    "Final test data not scored.",
+    "Threshold 0.5 is an initial reference, not an operational recommendation.",
+    "Retrospective benchmark; booking-time availability not established."
+  ]
+}

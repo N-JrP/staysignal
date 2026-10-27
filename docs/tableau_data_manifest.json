@@ -1,0 +1,22 @@
+{
+  "booking_overview": {
+    "grain": "One row per source booking record",
+    "rows": 119390,
+    "combined_outcomes": 44224
+  },
+  "model_test_bookings": {
+    "grain": "One row per final-test booking record",
+    "rows": 22198,
+    "combined_outcomes": 9001
+  },
+  "rules": [
+    "Use descriptive and model sources separately.",
+    "Do not physically join aggregate metric tables to booking rows.",
+    "Rates must use SUM(outcome_count) / SUM(booking_count).",
+    "Selected risk scores are not established as reliably calibrated probabilities.",
+    "Capacity results describe the complete test cohort.",
+    "Filtering bookings does not recompute precomputed capacity results.",
+    "No occupancy or realised revenue claims.",
+    "Files are local; nothing published."
+  ]
+}

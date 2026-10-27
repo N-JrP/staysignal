@@ -1,0 +1,101 @@
+{
+  "target": "Cancellation or no-show",
+  "training_records": 78310,
+  "validation_records": 18089,
+  "random_forest_parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": null,
+    "criterion": "gini",
+    "max_depth": 16,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 20,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 200,
+    "n_jobs": 2,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "results": [
+    {
+      "model": "training_prevalence_baseline",
+      "evaluation_split": "validation",
+      "records": 18089,
+      "positive_rate": 0.3728232627563713,
+      "average_precision": 0.3728232627563713,
+      "roc_auc": 0.5,
+      "brier_score": 0.23390985918548213,
+      "threshold": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "confusion_matrix": [
+        [
+          11345,
+          0
+        ],
+        [
+          6744,
+          0
+        ]
+      ]
+    },
+    {
+      "model": "logistic_regression",
+      "evaluation_split": "validation",
+      "records": 18089,
+      "positive_rate": 0.3728232627563713,
+      "average_precision": 0.69196323542521,
+      "roc_auc": 0.7539336469104706,
+      "brier_score": 0.18487566302534075,
+      "threshold": 0.5,
+      "precision": 0.7072149716818518,
+      "recall": 0.4258600237247924,
+      "confusion_matrix": [
+        [
+          10156,
+          1189
+        ],
+        [
+          3872,
+          2872
+        ]
+      ]
+    },
+    {
+      "model": "random_forest",
+      "evaluation_split": "validation",
+      "records": 18089,
+      "positive_rate": 0.3728232627563713,
+      "average_precision": 0.7396467994432989,
+      "roc_auc": 0.799895628950102,
+      "brier_score": 0.17308038784828028,
+      "threshold": 0.5,
+      "precision": 0.8825517532741868,
+      "recall": 0.3097568208778173,
+      "confusion_matrix": [
+        [
+          11067,
+          278
+        ],
+        [
+          4655,
+          2089
+        ]
+      ]
+    }
+  ],
+  "notes": [
+    "One fixed random-forest configuration; no tuning search.",
+    "Same feature list and splits as initial models.",
+    "All learned preprocessing fitted on training data only.",
+    "Final test remains unscored.",
+    "Threshold 0.5 is a reference, not a selected operating policy."
+  ]
+}

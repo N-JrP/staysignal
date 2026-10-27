@@ -1,0 +1,40 @@
+{
+  "dataset": "Hotel Booking Demand Datasets",
+  "authors": [
+    "Nuno Antonio",
+    "Ana de Almeida",
+    "Luis Nunes"
+  ],
+  "publication_doi": "https://doi.org/10.1016/j.dib.2018.11.126",
+  "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6297060/",
+  "download": "Appendix A supplementary archive mmc2.zip; downloaded manually",
+  "publication_license": "CC BY 4.0",
+  "redistribution_note": "Raw data remain excluded from Git pending supplementary-file licence review.",
+  "geography": "Portugal: Algarve resort hotel and Lisbon city hotel",
+  "arrival_period": "2015-07-01 to 2017-08-31",
+  "verified_at_utc": "2026-10-24T11:04:10.060443+00:00",
+  "archive_sha256": "6db57d635b9edec05f1cf9616ba6473e864909e4fc34819fa21cff58d518ee6a",
+  "files": [
+    {
+      "filename": "H1.csv",
+      "hotel_type": "Resort Hotel",
+      "rows": 40060,
+      "columns": 31,
+      "size_bytes": 8060044,
+      "sha256": "6f38fda13794fd6cf6547d2432ffb79666200000eb45fd09e4b97fe49519a6ab"
+    },
+    {
+      "filename": "H2.csv",
+      "hotel_type": "City Hotel",
+      "rows": 79330,
+      "columns": 31,
+      "size_bytes": 15983819,
+      "sha256": "5107090ffdc5585a9e18299801e9d85c3b459c235542882183a502a73ef63c4d"
+    }
+  ],
+  "limitations": [
+    "Historical records from two hotels; not representative of current German demand.",
+    "Feature availability at booking time requires investigation.",
+    "Repeated-looking records are not automatically duplicate bookings."
+  ]
+}

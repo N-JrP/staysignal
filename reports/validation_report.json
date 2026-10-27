@@ -1,0 +1,34 @@
+{
+  "rows": 119390,
+  "arrival_min": "2015-07-01",
+  "arrival_max": "2017-08-31",
+  "reservation_status_counts": {
+    "Check-Out": 75166,
+    "Canceled": 43017,
+    "No-Show": 1207
+  },
+  "flag_counts": {
+    "invalid_arrival_date": 0,
+    "invalid_status_date": 0,
+    "zero_night_stay": 715,
+    "zero_total_guests": 180,
+    "unknown_total_guests": 4,
+    "negative_adr": 1,
+    "zero_adr": 1959,
+    "negative_count_or_duration": 0,
+    "noncancelled_status_before_arrival": 0
+  },
+  "adr_quantiles": {
+    "0.0": -6.38,
+    "0.01": 0.0,
+    "0.5": 94.575,
+    "0.99": 252.0,
+    "1.0": 5400.0
+  },
+  "notes": [
+    "Flags identify records for investigation, not automatic deletion.",
+    "Zero rates and zero-night stays may have legitimate explanations.",
+    "Status dates are outcome information, not model predictors.",
+    "No records removed and no missing values imputed."
+  ]
+}

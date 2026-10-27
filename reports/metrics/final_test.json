@@ -1,0 +1,60 @@
+{
+  "period": "May-August 2017",
+  "records": 22198,
+  "positive_outcomes": 9001,
+  "selected_model": "random_forest_with_sigmoid_calibration",
+  "results": [
+    {
+      "model": "training_prevalence_baseline",
+      "records": 22198,
+      "positive_rate": 0.4054869808090819,
+      "average_precision": 0.4054869808090819,
+      "roc_auc": 0.5,
+      "brier_score": 0.2428159466310379,
+      "log_loss": 0.6788959539777976,
+      "precision_at_0_5": 0.0,
+      "recall_at_0_5": 0.0
+    },
+    {
+      "model": "logistic_regression",
+      "records": 22198,
+      "positive_rate": 0.4054869808090819,
+      "average_precision": 0.6280887481218187,
+      "roc_auc": 0.6983936399613837,
+      "brier_score": 0.21284328662412375,
+      "log_loss": 0.6129219063410648,
+      "precision_at_0_5": 0.5823298429319371,
+      "recall_at_0_5": 0.49427841350961005
+    },
+    {
+      "model": "random_forest_unadjusted",
+      "records": 22198,
+      "positive_rate": 0.4054869808090819,
+      "average_precision": 0.7082268594892249,
+      "roc_auc": 0.7564046140815504,
+      "brier_score": 0.19089071083232884,
+      "log_loss": 0.5589849936164327,
+      "precision_at_0_5": 0.7825739408473221,
+      "recall_at_0_5": 0.3262970781024331
+    },
+    {
+      "model": "random_forest_sigmoid",
+      "records": 22198,
+      "positive_rate": 0.4054869808090819,
+      "average_precision": 0.7082268594892249,
+      "roc_auc": 0.7564046140815504,
+      "brier_score": 0.19300645130096644,
+      "log_loss": 0.5616928658510927,
+      "precision_at_0_5": 0.5879265091863517,
+      "recall_at_0_5": 0.6719253416287079
+    }
+  ],
+  "notes": [
+    "Frozen artifact fingerprints verified before evaluation.",
+    "No model fitting or tuning performed.",
+    "Results must not be used to retune the reported models.",
+    "Retrospective benchmark; not a live booking-time backtest.",
+    "Review capacity applies to the entire test cohort.",
+    "Identified outcomes are not prevented cancellations."
+  ]
+}
