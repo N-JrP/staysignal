@@ -1,128 +1,59 @@
-﻿# StaySignal
-### Hotel booking analytics and cancellation-risk modelling
+# StaySignal
 
-StaySignal explores historical hotel booking patterns and evaluates whether machine learning can prioritise bookings associated with cancellation or no-show outcomes.
+Hotel booking analysis and cancellation-risk modelling with **Python, scikit-learn and Tableau**.
 
-Built with Python, pandas, scikit-learn and Tableau, the project covers data preparation, quality checks, model evaluation and visual communication using 119,390 real booking records from two Portuguese hotels.
+I built StaySignal to explore a practical hospitality question: if a team can review only a small share of bookings, can a model help prioritise which ones to look at?
 
-## Project at a glance
+The project uses **119,390 bookings from two Portuguese hotels**, covering July 2015 to August 2017.
 
-- **Data:** 119,390 bookings, July 2015–August 2017.
-- **Analysis:** Booking trends, hotel differences, cancellations and no-shows.
-- **Models:** Training-prevalence baseline, logistic regression and random forest.
-- **Evaluation:** Chronological splits, label-cutoff checks, calibration assessment and capacity-based ranking.
-- **Deliverables:** Python scripts, documented decisions, evaluation reports and two Tableau dashboards.
-- **Scope:** Historical retrospective benchmark; not a live hotel deployment.
+## What I built
 
-## Hospitality use case
+- A data preparation workflow that handles missing values, cleans text fields and flags unusual records.
+- Logistic regression and random forest models for cancellations or no-shows, compared with a simple baseline.
+- Evaluation on later arrival periods, with checks for outcome leakage, label availability and calibration.
+- Tableau dashboards showing booking trends, model performance and review-capacity trade-offs.
 
-A hotel analytics team may have limited capacity to review bookings. StaySignal evaluates whether model scores can concentrate cancellation and no-show outcomes within a smaller review queue.
+**Tools:** Python 3.11, pandas, NumPy, scikit-learn, joblib, Matplotlib, seaborn and Tableau Public.
 
-The review example uses the entire historical test cohort. It does not simulate daily operations or establish the effectiveness of contacting guests.
+## Main result
+
+On the final test set of **22,198 bookings**, the selected model's highest-risk 10% contained **1,986 cancellations or no-shows among 2,220 bookings reviewed**.
+
+That is **89.46% precision**, identifying **22.06% of all outcomes** at that review capacity—about **2.21 times random selection**.
+
+| Model | Average precision ↑ | ROC-AUC ↑ | Brier score ↓ |
+|---|---:|---:|---:|
+| Baseline | 0.4055 | 0.5000 | 0.2428 |
+| Logistic regression | 0.6281 | 0.6984 | 0.2128 |
+| Random forest | 0.7082 | 0.7564 | 0.1909 |
+| Random forest + calibration | 0.7082 | 0.7564 | 0.1930 |
+
+I selected the calibrated forest before final testing. Calibration helped during development but slightly worsened final-test probability error; I kept the original selection and reported both versions.
 
 ## Dashboards
 
-### Hotel Booking Overview
+![Hotel booking overview](docs/images/hotel_booking_overview.png)
 
-Booking volumes, cancellation and no-show rates, monthly trends and hotel comparisons. Cancellation and no-show rates are reported separately.
+![Review capacity and outcomes identified](docs/images/review_capacity.png)
 
-![Hotel Booking Overview](docs/images/hotel_booking_overview.png)
+<details>
+<summary>Model comparison charts</summary>
 
-### Model Performance
+![Model performance](docs/images/model_performance.png)
 
-Comparison of ranking performance and probability prediction error on the final temporal test.
+</details>
 
-![Model Performance](docs/images/model_performance.png)
+Download the [Tableau workbook](dashboards/StaySignal.twbx) and open it in Tableau Public or a compatible Tableau Desktop version. The data extracts are included.
 
-### Review Capacity
+## Scope
 
-Trade-off between the proportion of bookings reviewed and the share of cancellation/no-show outcomes identified.
+This is a historical benchmark. The review queue covers the whole test cohort, and the results measure outcomes identified, not cancellations prevented or money saved. The data does not establish which fields were available at booking time, so live prediction would need a separate feature audit and validation on current hotel data.
 
-![Review Capacity](docs/images/review_capacity.png)
+The [feature audit](docs/feature_audit.md), [test findings](docs/final_test_findings.md) and [evaluation reports](reports/) contain the details. Python scripts are in [`src/staysignal/`](src/staysignal/).
 
-Open [the packaged Tableau workbook](dashboards/StaySignal.twbx) in Tableau Public or a compatible Tableau Desktop version. It contains the dashboard data extracts.
+## Python setup
 
-## Final-test results
-
-The final test contains **22,198 bookings** scheduled to arrive during **May–August 2017**, including **9,001 cancellations or no-shows**.
-
-| Model | Average precision ↑ | ROC-AUC ↑ | Brier score ↓ | Log loss ↓ |
-|---|---:|---:|---:|---:|
-| Training-prevalence baseline | 0.4055 | 0.5000 | 0.2428 | 0.6789 |
-| Logistic regression | 0.6281 | 0.6984 | 0.2128 | 0.6129 |
-| Random forest | 0.7082 | 0.7564 | 0.1909 | 0.5590 |
-| Random forest + sigmoid calibration | 0.7082 | 0.7564 | 0.1930 | 0.5617 |
-
-The calibrated random forest was selected before final-test scoring. Calibration improved development assessment results but slightly worsened final-test Brier score and log loss. The frozen selection was retained, and both forest variants are reported transparently.
-
-### Illustrative 10% review capacity
-
-For the selected model:
-
-| Measure | Result |
-|---|---:|
-| Bookings reviewed | 2,220 |
-| Cancellation/no-show outcomes identified | 1,986 |
-| Precision among reviewed bookings | 89.46% |
-| Share of all outcomes identified | 22.06% |
-| Lift over random selection | 2.21× |
-
-These are outcomes identified retrospectively, not cancellations prevented or revenue saved.
-
-## Data preparation and evaluation
-
-- Recorded source-file fingerprints and dataset provenance.
-- Normalised padded text and missing-value representations.
-- Retained duplicate-looking records because identical anonymous rows do not establish duplicate bookings.
-- Flagged unusual records rather than automatically deleting them.
-- Documented feature decisions and excluded direct outcome fields from predictors.
-- Used chronological arrival-date splits and held aside development records with late final-status dates.
-- Compared models against a training-prevalence baseline.
-- Assessed calibration on a later development period.
-- Froze model selection and artifact fingerprints before final-test scoring.
-- Examined final-test performance by hotel and month.
-- Audited predictor-pattern overlap across splits.
-
-Arrival-date splitting and label-cutoff checks do not establish booking-time feature availability.
-
-## Technology
-
-| Area | Tools |
-|---|---|
-| Data preparation and analysis | Python 3.11, pandas, NumPy |
-| Machine learning | scikit-learn |
-| Model persistence | joblib |
-| Python visualisation | Matplotlib, seaborn |
-| Business intelligence | Tableau Public |
-| Development and version control | VS Code, Git, GitHub |
-
-The workflow does not require paid APIs or cloud services.
-
-## Repository guide
-
-| Path | Contents |
-|---|---|
-| `src/staysignal/` | Data preparation, analysis, modelling and evaluation scripts |
-| `docs/` | Data provenance, feature decisions, split configuration and findings |
-| `docs/images/` | Dashboard screenshots |
-| `reports/` | Generated analysis and evaluation outputs |
-| `dashboards/StaySignal.twbx` | Packaged Tableau workbook |
-| `requirements.txt` | Recorded Python environment dependencies |
-
-Key scripts include:
-
-- `inspect_data.py`, `clean_data.py`, `validate_data.py`: data preparation and quality checks.
-- `analyse_data.py`, `plot_overview.py`: descriptive analysis.
-- `make_splits.py`: historical split assignments.
-- `train_initial.py`, `train_forest.py`: baseline and model training.
-- `evaluate_capacity.py`, `check_calibration.py`, `calibrate_forest.py`: development evaluation.
-- `freeze_selection.py`, `evaluate_final_test.py`: frozen selection and final evaluation.
-- `evaluate_segments.py`, `audit_split_overlap.py`: diagnostic analysis.
-- `export_tableau.py`: dashboard data exports.
-
-## Local environment setup
-
-Run from the repository root using Windows PowerShell:
+From the repository root in Windows PowerShell:
 
 ```powershell
 py -3.11 -m venv .venv
@@ -130,27 +61,10 @@ py -3.11 -m venv .venv
 python -m pip install -r requirements.txt
 ```
 
-The recorded environment was used on Windows with Python 3.11.7. Cross-platform installation has not been verified.
+This sets up the Python environment. The Tableau workbook can be viewed without running the scripts. Raw data and trained Python models are excluded from Git.
 
-The Tableau workbook can be reviewed independently of Python model training.
+## Data
 
-## Data source
+António, de Almeida & Nunes (2019), [Hotel booking demand datasets](https://doi.org/10.1016/j.dib.2018.11.126).
 
-António, N., de Almeida, A., & Nunes, L. (2019). *Hotel booking demand datasets*. Data in Brief, 22, 41–49.
-
-- DOI: https://doi.org/10.1016/j.dib.2018.11.126
-- Article and supplementary files: https://pmc.ncbi.nlm.nih.gov/articles/PMC6297060/
-- Original CSV files: `H1.csv` and `H2.csv`, supplied in supplementary archive `mmc2.zip`.
-- Source fingerprints: [data source manifest](docs/data_source_manifest.json).
-
-## Limitations
-
-- Historical data from two Portuguese hotels; results do not establish performance for current German hotels.
-- A complete booking-time snapshot is unavailable, so candidate features are not approved for live prediction.
-- The target combines cancellations and no-shows.
-- Anonymous records prevent reliable customer-level grouping.
-- The selected scores are not established as reliably calibrated probabilities across future periods.
-- Metrics are point estimates without confidence intervals.
-- No live PMS integration, intervention effectiveness, revenue savings or production performance has been demonstrated.
-
-See the [feature audit](docs/feature_audit.md) and [final-test findings](docs/final_test_findings.md) for further methodological detail.
+The original `H1.csv` and `H2.csv` files are in the article's [supplementary materials](https://pmc.ncbi.nlm.nih.gov/articles/PMC6297060/), archive `mmc2.zip`. File fingerprints are recorded in the [source manifest](docs/data_source_manifest.json).
